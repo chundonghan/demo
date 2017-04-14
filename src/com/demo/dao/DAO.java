@@ -11,7 +11,7 @@ public interface DAO
      * @throws Exception
      */
     public Object save(String str, Object obj) throws Exception;
-
+ 
     /**
      * 修改对象
      * @param str

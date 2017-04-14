@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+	<select id="getUserList" resultType="Map" parameterType="PageData">
+		SELECT Host,User FROM USER
+		<if test=" SELECT_PRIV != null and SELECT_PRIV != ''">
+			<where>
+				Select_priv=#{SELECT_PRIV}
+			</where>
+		</if> 
+	</select>
+	<insert id="insertGen"  parameterType="PageData" keyProperty="id">
+		insert into gen(column_name,column_copy) values(#{column_name},#{column_copy})
+	</insert>
+	<select id="login" resultType="Map" parameterType="PageData">
+		select * from login where login_name=#{login_name} and login_password=#{login_password}
+	</select>
+	<select id="getLoginToken" resultType="String" parameterType="int">
+		select login_token from login where id=#{id}
+	</select>
+	<update id="flashLoginToken" parameterType="Map">
+		update login set login_token =#{login_token} where id=#{id}
+	</update>
+	<update id="flashLoginToken1" parameterType="Map">
+		update login set login_password =#{login_password} where id=#{id}
+	</update>
+	<update id="flashLoginToken2" parameterType="Map">
+		update login set login_token =#{login_token} where login_name=#{login_name} and login_password=#{login_password}
+	</update>
+</mapper>

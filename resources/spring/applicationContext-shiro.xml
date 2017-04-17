@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       					http://www.springframework.org/schema/context 
+       					http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+	default-lazy-init="true">
+	
+	<!-- ================ Shiro start ================ -->
+		<!-- 自定义Realm -->
+	    <bean id="ShiroRealm" class="com.demo.interceptors.shiro.ShiroRealm" ></bean>
+		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+			<property name="realm" ref="ShiroRealm" />
+		</bean>
+		<!-- Shiro Filter -->
+		<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+			<!-- Shiro的核心安全接口，这个属性是必须的 -->  
+	        <property name="securityManager" ref="securityManager"></property>  
+	        <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->  
+	        <property name="loginUrl" value="/admin/login"></property>  
+	        <!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->  
+	        <!-- <property name="successUrl" value="/" ></property> -->  
+	        <!-- 用户访问未对其授权的资源时，所显示的连接 -->  
+	        <property name="unauthorizedUrl" value="/admin/login"></property> 
+			
+			<property name="filterChainDefinitions">
+				<value>
+					<!-- anon:地址不需要任何权限即可访问 -->
+					/admin/index = anon
+					<!-- perms["admin:product"] 需要权限为admin:product的用户-->
+					
+					<!-- roles["admin"] 需要角色为admin的用户
+						/admin/index roles["admin"]-->
+					
+					/index/index = authc
+					/basic/** = authc
+					<!-- /admin/ = anon
+					/admin/index.jsp = anon
+					/admin/login.jsp = authc
+					/admin/logout.jsp = logout
+					/admin/common/captcha.jhtml = anon
+	
+					/admin/product/** = perms["admin:product"]
+	
+					/admin/** = authc  -->
+					
+				</value>
+			</property>
+		</bean>
+	<!-- ================ Shiro end ================ -->
+	
+</beans>

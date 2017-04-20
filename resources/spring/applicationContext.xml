@@ -97,5 +97,5 @@
 		<aop:advisor pointcut-ref="pc" advice-ref="txAdvice" />
 	</aop:config>
 
-
+	<bean id="localInit" class="com.demo.common.util.LocalInit"/>
 </beans>   

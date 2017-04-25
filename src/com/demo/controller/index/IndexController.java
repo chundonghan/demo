@@ -103,5 +103,12 @@ public class IndexController extends BaseController
         }
         System.out.println(map);
     }
-
+    
+    @RequestMapping(value = "/userList", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String,Object>> userList(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+    {
+        List<Map<String, Object>> userList = userService.getUserList(null);
+        return userList;
+    }
 }

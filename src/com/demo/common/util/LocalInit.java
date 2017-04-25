@@ -1,15 +1,12 @@
 package com.demo.common.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
 
 import com.demo.service.user.UserService;
-
+@Component
 public class LocalInit implements ApplicationListener<ContextRefreshedEvent>
 {
     @Autowired

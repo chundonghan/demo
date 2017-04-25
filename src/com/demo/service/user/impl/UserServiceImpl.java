@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService{
     public int updateToken(Map<String, Object> map)  throws Exception
     {
         daoSupport.update("UserMapper.flashLoginToken", map);
-        int i =1/0;
+       // int i =1/0;
         return 1;
     }
 	

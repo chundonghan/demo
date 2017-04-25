@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+	<!-- login -->
+	<select id="memberLogin" parameterType="Map" resultType="Map">
+		SELECT nickname,avatar,gender,auth_token,token_expire,salt FROM demo_member
+		<where>
+			account =#{account} AND password=#{password}
+		</where>
+		union
+		SELECT nickname,avatar,gender,auth_token,token_expire,salt FROM demo_member
+		<where>
+			email =#{account} AND password=#{password}
+		</where>
+	</select>
+	<!-- authToken -->
+	<select id="authToken" parameterType="String" resultType="Map">
+		SELECT auth_token,token_expire FROM demo_member
+		<where>
+			account =#{account} 
+		</where>
+		union
+		SELECT auth_token,token_expire FROM demo_member
+		<where>
+			email =#{account} 
+		</where>
+	</select>
+	
+	<update id="updateToken" parameterType="Map">
+		update demo_member set salt=#{salt},auth_token=#{auth_token},token_expire=#{token_expire} where account =#{account}
+	</update>
+	
+	<update id="updateTokenExpire" parameterType="Map">
+		update demo_member set token_expire=#{token_expire} where account =#{account}
+	</update>
+	
+</mapper>

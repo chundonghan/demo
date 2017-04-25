@@ -32,9 +32,10 @@
 	            <mvc:mapping path="/**"/><!--这个地方时你要拦截得路径 我这个意思是拦截所有得URL-->
 	            <bean class="com.demo.interceptors.TokenInterceptor"/><!--class文件路径改成你自己写得拦截器路径！！ -->
 	        </mvc:interceptor>
-	       <!--   <mvc:interceptor>
-	            <mvc:mapping path="/**"/>这个地方时你要拦截得路径 我这个意思是拦截所有得URL
-	            <bean class="com.demo.interceptors.LoginTokenInterceptor"/>class文件路径改成你自己写得拦截器路径！！
-	        </mvc:interceptor> -->
+	       <mvc:interceptor> 
+	       		<mvc:mapping path="/"/>
+	            <mvc:mapping path="/v1/**"/>
+	            <bean class="com.demo.interceptors.AuthTokenInterceptor"/>
+	        </mvc:interceptor>
 	</mvc:interceptors>
 </beans>

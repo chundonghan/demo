@@ -14,7 +14,7 @@
 			email =#{account} AND password=#{password}
 		</where>
 	</select>
-	<!-- authToken -->
+	<!-- authToken --> 
 	<select id="authToken" parameterType="String" resultType="Map">
 		SELECT auth_token,token_expire FROM demo_member
 		<where>

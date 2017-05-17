@@ -1,7 +1,4 @@
-/*
- * Copyright  辽宁爱伍佰  All rights reserved.
- *
- */
+
 package com.demo.common.util;
 import com.demo.entity.PageData;
 

@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 	public List<Map<String, Object>> getUserList(PageData pd) {
 		System.out.println(mysql_url);
 		try {
-			return (List<Map<String, Object>>) daoSupport.findForList("UserMapper.getUserList", pd);
+			return List.class.cast(daoSupport.findForList("UserMapper.getUserList", pd));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

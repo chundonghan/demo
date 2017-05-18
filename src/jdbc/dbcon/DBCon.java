@@ -16,7 +16,7 @@ public class DBCon
         Properties pro = new Properties();
         try
         {
-            pro.load(DBCon.class.getResourceAsStream("init.properties"));
+            pro.load(DBCon.class.getResourceAsStream("/jdbc/dbcon/init.properties"));
         }
         catch (IOException e)
         {

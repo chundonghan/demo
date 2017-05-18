@@ -44,7 +44,7 @@ public class AuthTokenInterceptor extends HandlerInterceptorAdapter
                   >= tokenExpire){
               Map<String,Object> params = new HashMap<>();
               params.put("account", account);
-              params.put("token_expire", tokenExpire);
+              params.put("token_expire", tokenExpire+1000);
               memberService.updateTokenExpire(params);
               logger.info("{}","token正常");
               return true;

@@ -33,7 +33,7 @@ public class PageDto {
 	}
 public static void main(String[] args) {
 	PageDto pd = new PageDto();
-	pd.setPagesize(2); 
+	pd.setPagesize(5); 
 	pd.setPage(2); 
 	
 	System.out.println(pd.getOffset());

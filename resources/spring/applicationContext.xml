@@ -89,7 +89,7 @@
 		</tx:attributes>
 	</tx:advice> 
 	<!-- proxy-target-class="true"  cglib 代理  -->
-	<!-- <aop:aspectj-autoproxy proxy-target-class="true"/> -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 
 	<!-- 事物处理 -->
 	<aop:config>

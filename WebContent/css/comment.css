@@ -1,0 +1,164 @@
+div{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+div.comment{
+	width: 800px;
+	height: auto;
+	
+}
+div.comment>div.title{
+	font-weight:700;
+	font-size: large;
+	color: grey;
+	width: 92%;
+	margin: 0 4% 0 4%;
+	height: 70px;
+	line-height: 70px;
+	
+}
+div.comment>div.mkc{
+	width: 92%;
+	margin: 0 4% 0 4%;
+	height: 70px;
+	
+}
+textarea#mkc,textarea#rec{
+	margin: 0;
+	padding: 10px 10px 0px 10px;
+	width:81%;
+	height: 58px;
+	float: left;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #555555;
+}
+textarea:focus{
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+
+}
+button#mkc,button#rec{
+	border: 1px solid #a9a9a9;
+	border-left: 0;
+	width:15%;
+	height: 70px;
+	float: left;
+	background-color: #5cb85c;
+	color: white;
+	font-size: 15px;
+}
+button#rec{
+	color: black;
+	background-color: white;
+}
+button#mkc:hover{
+	background-color: #449d44;
+}
+button#rec:hover{
+	background-color: #EEEEEE;
+}
+div.commentList{
+	height: auto;
+	width: 91%;
+	margin: 2% 5% 0 4%;
+}
+div.eachComment{
+	height: auto;
+	width:100%;
+	border-bottom: 1px dashed #555555;
+}
+div.majorComment{
+	height: auto;
+	width:100%;
+}
+div.west{
+	width: 10%;
+	height: 70px;
+	float: left;
+	line-height: 70px;
+	
+}
+img.avatar{
+	width: 85%;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+div.east{
+	display: inline-block;
+	margin-left: 1%;
+	width: 89%;
+	height: 70px;
+}
+div.north{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+div.south{
+	width: 100%;
+	height: 35px;
+	font-size: 14px;
+	color: #808080;
+}
+a.owner{
+	font-size: 14px;
+	text-decoration: none;
+}
+div.sw{
+	float: left;
+}
+div.se{
+	float: right;
+	display: inline;
+}
+img.recPic{
+	vertical-align: middle;
+}
+span.times{
+	display: inline-block;
+	font-size: 13px;
+	padding-left: 6px;
+	
+}
+div.reComment{
+	width: 91%;
+	margin: 0 0 5% 10%;
+	height: 70px;
+	
+}
+
+div.minorComment{
+	height: auto;
+	width:90%;
+	margin: 0 0 0 10%;
+	border-top: 1px dashed #808080; 
+}
+
+div#triangle-up {
+	position: absolute;
+	left:8%;
+	margin-top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 8px solid #A9A9A9;
+}
+div#triangle-up:hover{
+	cursor: pointer;
+}
+div.commentMore{
+	 width: 800px;
+	 height: 60px;
+	 line-height: 60px;
+	 text-align: center;
+	 font-size:16px;
+}
+a#commentMore{
+	text-decoration: none;
+}

@@ -69,7 +69,7 @@ public class ShiroRealm extends AuthorizingRealm{
             System.out.println("salt:"+salt);
             String auth_token = SHA.sha(salt+username,"SHA-1");
             System.out.println(auth_token);
-            long token_expire = System.currentTimeMillis()/1000+10;
+            long token_expire = System.currentTimeMillis()/1000+1000;
             System.out.println(token_expire);
             params.put("salt", salt);
             params.put("auth_token", auth_token);

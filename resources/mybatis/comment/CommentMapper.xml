@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommentMapper">
+	<insert id="makeComment" parameterType="com.demo.dto.CommentDto">
+		INSERT INTO tbl_comment(owner_id,owner_comment,pre_id) 
+		VALUES(#{owner_id},#{owner_comment},#{pre_id})
+	</insert>
+	<select id="findPreId" parameterType="long" resultType="string">
+		SELECT pre_id
+		FROM tbl_comment 
+		WHERE enable_flag = 0 AND id = #{id}
+	</select>
+	
+	<select id="listComments" parameterType="com.demo.dto.CommentDto" resultType="Comment" >
+		SELECT id,owner_id,owner_comment,DATE_FORMAT(create_timestamp,'%Y-%m-%d %H:%i:%s') as ct,pre_id 
+		FROM tbl_comment WHERE enable_flag = 0 
+		ORDER BY create_timestamp DESC
+		LIMIT #{offset},#{pagesize}
+	</select>
+	<select id="commentCount" resultType="int" >
+		SELECT count(id)
+		FROM tbl_comment WHERE enable_flag = 0 
+	</select>
+	<select id="listPreComments" resultType="Comment" parameterType="string">
+		SELECT id,owner_id,owner_comment,DATE_FORMAT(create_timestamp,'%Y-%m-%d %H:%i:%s') as ct
+		FROM tbl_comment 
+		WHERE enable_flag = 0 AND FIND_IN_SET(id,#{pre_id})
+		ORDER BY create_timestamp ASC
+	</select>
+</mapper>

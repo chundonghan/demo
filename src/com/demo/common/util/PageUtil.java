@@ -1,12 +1,12 @@
 
 package com.demo.common.util;
-import com.demo.entity.PageData;	
+import com.demo.entity.PageData;
 
 /**
  * 
  * @see 分页工具类
  * @time 2016年9月30日 上午11:16:34
- * @author admin
+ * @author han
  *
  */
 public class PageUtil {

@@ -39,9 +39,11 @@ public class ValidFormat
 
     public static void main(String[] args)
     {
+        
         print(valid("211203199005041516", "IDCARD"));
         print(valid("18524491554", "MOBILEPHONE"));
         print(valid("76855016", "PHONE"));
         print(valid("6217850500000899520", "BANK"));
+        
     }
 }
